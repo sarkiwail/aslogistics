@@ -1,0 +1,15 @@
+{
+  "sessions": [
+    {
+      "id": "session_1781972361998_tbm302m",
+      "title": "New Session",
+      "timestamp": 1781972361998,
+      "messageCount": 0,
+      "messages": []
+    }
+  ],
+  "messages": {
+    "session_1781972361998_tbm302m": []
+  },
+  "activeSessionId": "session_1781972361998_tbm302m"
+}

@@ -79,6 +79,71 @@
   flex-wrap: wrap;
 }
 
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contactLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--fg-base);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contactLink:hover {
+  color: var(--primary);
+}
+
+.contactText {
+  font-size: 0.8rem;
+  color: var(--fg-light);
+  margin: 0;
+}
+
+.social {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.socialIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary-light);
+  color: var(--primary);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.socialIcon:hover {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+:global(.dark) .socialIcon {
+  background-color: rgba(16, 185, 129, 0.15);
+}
+
+:global(.dark) .socialIcon:hover {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
 @media (max-width: 480px) {
   .links {
     gap: 32px;

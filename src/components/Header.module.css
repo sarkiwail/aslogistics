@@ -12,6 +12,14 @@
   transition: background-color var(--transition-normal), border-color var(--transition-normal);
 }
 
+@media (max-width: 768px) {
+  .header {
+    height: auto;
+    min-height: 70px;
+    padding: 8px 0;
+  }
+}
+
 :global(.dark) .header {
   background-color: rgba(11, 15, 25, 0.85);
 }
@@ -26,6 +34,13 @@
   padding: 0 24px;
 }
 
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+    gap: 12px;
+  }
+}
+
 .logo {
   display: flex;
   flex-direction: column;
@@ -36,6 +51,7 @@
   font-weight: 800;
   letter-spacing: 0.05em;
   color: var(--fg-base);
+  line-height: 1.1;
 }
 
 .logoSub {
@@ -45,6 +61,20 @@
   text-transform: uppercase;
   color: var(--primary);
   margin-top: -2px;
+}
+
+@media (max-width: 768px) {
+  .logoMain {
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+  }
+
+  .logoSub {
+    font-size: 0.55rem;
+    letter-spacing: 0.05em;
+    margin-top: 0;
+  }
 }
 
 .nav {
@@ -89,7 +119,13 @@
 .actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .actions {
+    gap: 8px;
+  }
 }
 
 .contactBtn {
@@ -106,6 +142,20 @@
   cursor: pointer;
   transition: background-color var(--transition-fast), transform var(--transition-fast);
   box-shadow: var(--shadow-sm);
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .contactBtn {
+    padding: 8px 14px;
+    font-size: 0.75rem;
+    gap: 6px;
+  }
+
+  .contactBtn svg {
+    width: 14px;
+    height: 14px;
+  }
 }
 
 .contactBtn:hover {
@@ -114,6 +164,44 @@
 }
 
 .contactBtn:active {
+  transform: translateY(0);
+}
+
+.whatsappBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #25D366;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 768px) {
+  .whatsappBtn {
+    padding: 8px;
+    min-width: 36px;
+    min-height: 36px;
+  }
+
+  .whatsappBtn svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.whatsappBtn:hover {
+  background-color: #1da851;
+  transform: translateY(-1px);
+}
+
+.whatsappBtn:active {
   transform: translateY(0);
 }
 
@@ -167,8 +255,38 @@
   padding: 100px 24px 24px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
   border-left: 1px solid var(--border);
+}
+
+.drawer :global(.contactBtn),
+.drawer :global(.whatsappBtn) {
+  width: 100%;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 20px;
+  font-size: 0.85rem;
+  margin-top: 8px;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.drawer :global(.contactBtn):hover,
+.drawer :global(.whatsappBtn):hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.drawer :global(.contactBtn):active,
+.drawer :global(.whatsappBtn):active {
+  transform: translateY(0);
+}
+
+.drawer :global(.contactBtn) svg,
+.drawer :global(.whatsappBtn) svg {
+  position: relative;
+  top: 1px;
 }
 
 .drawerOpen {
@@ -176,15 +294,18 @@
 }
 
 .drawerLink {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--fg-base);
-  padding: 12px 0;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
   border-bottom: 1px solid var(--border);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
 }
 
 .drawerLink:hover {
   color: var(--primary);
+  background-color: rgba(0, 0, 0, 0.03);
 }
 
 .overlay {

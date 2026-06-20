@@ -10,7 +10,7 @@ export default function Contact() {
     service: "Cold Chain Last-Mile Delivery",
     message: "",
   });
-  
+
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -18,11 +18,33 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate API call
-    console.log("Submitted Logistics Request:", formData);
-    setIsSubmitted(true);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        const error = await response.json();
+        alert(error.error || "Failed to send quote request. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Failed to send quote request. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -35,7 +57,7 @@ export default function Contact() {
               <span className={styles.tagline}>Get In Touch</span>
               <h2 className={styles.title}>Partner With A&S Logistics</h2>
             </div>
-            
+
             <p className={styles.description}>
               Have specific fleet requirements or need standard-operating-procedure compliant delivery of health commodities? Connect directly with our Fleet Management team.
             </p>
@@ -129,8 +151,12 @@ export default function Contact() {
                   />
                 </div>
 
-                <button type="submit" className={styles.submitBtn}>
-                  Submit Quote Request
+                <button
+                  type="submit"
+                  className={styles.submitBtn}
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Sending..." : "Submit Quote Request"}
                 </button>
               </form>
             ) : (
@@ -142,12 +168,12 @@ export default function Contact() {
                 </div>
                 <h3 className={styles.successTitle}>Request Received</h3>
                 <p className={styles.successText}>
-                  Thank you, <strong>{formData.name}</strong>. Your request for <em>{formData.service}</em> has been catalogued. 
+                  Thank you, <strong>{formData.name}</strong>. Your request for <em>{formData.service}</em> has been catalogued.
                   Our Dispatch Manager <strong>Sulaiman Madaki</strong> will call you at <strong>{formData.phone}</strong> shortly.
                 </p>
-                <button 
-                  onClick={() => setIsSubmitted(false)} 
-                  className={styles.submitBtn} 
+                <button
+                  onClick={() => setIsSubmitted(false)}
+                  className={styles.submitBtn}
                   style={{ width: "auto", padding: "10px 24px", marginTop: "16px" }}
                 >
                   Send Another Request
