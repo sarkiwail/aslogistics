@@ -1,0 +1,168 @@
+.coverageSection {
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 64px;
+  align-items: center;
+}
+
+@media (max-width: 968px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.tagline {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+}
+
+.title {
+  font-size: clamp(2rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  color: var(--fg-base);
+  letter-spacing: -0.01em;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: var(--fg-muted);
+  line-height: 1.6;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.statCard {
+  padding: 20px;
+  background-color: var(--bg-surface-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.statNum {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1.2;
+}
+
+.statLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--fg-muted);
+  margin-top: 4px;
+}
+
+/* Simulated interactive map/network list in CSS */
+.mapWrapper {
+  background-color: var(--bg-surface-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+@media (max-width: 480px) {
+  .mapWrapper {
+    padding: 24px;
+  }
+}
+
+.mapTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--fg-base);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.regionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.regionItem {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.regionItem:hover {
+  border-color: var(--primary);
+  transform: translateX(4px);
+}
+
+.regionInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.regionName {
+  font-weight: 700;
+  color: var(--fg-base);
+  font-size: 0.95rem;
+}
+
+.regionCoverage {
+  font-size: 0.75rem;
+  color: var(--fg-light);
+}
+
+.badge {
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+
+:global(.dark) .badge {
+  background-color: rgba(16, 185, 129, 0.15);
+}
+
+.badgeAccent {
+  background-color: var(--accent-light);
+  color: var(--accent);
+}
+
+:global(.dark) .badgeAccent {
+  background-color: rgba(56, 189, 248, 0.15);
+}

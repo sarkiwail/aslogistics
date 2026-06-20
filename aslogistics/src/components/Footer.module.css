@@ -1,0 +1,134 @@
+.footer {
+  background-color: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  padding: 60px 0 30px;
+  color: var(--fg-muted);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 400px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.logoMain {
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--fg-base);
+}
+
+.logoSub {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-top: -2px;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  color: var(--fg-light);
+  line-height: 1.5;
+}
+
+.cacBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  background-color: var(--primary-light);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  width: fit-content;
+}
+
+:global(.dark) .cacBadge {
+  background-color: rgba(16, 185, 129, 0.15);
+}
+
+.links {
+  display: flex;
+  gap: 64px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .links {
+    gap: 32px;
+  }
+}
+
+.linkCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.colTitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--fg-base);
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+}
+
+.linkItem a {
+  font-size: 0.9rem;
+  color: var(--fg-light);
+}
+
+.linkItem a:hover {
+  color: var(--primary);
+}
+
+.bottomRow {
+  border-top: 1px solid var(--border);
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.8rem;
+  color: var(--fg-light);
+}
+
+.copyright {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
